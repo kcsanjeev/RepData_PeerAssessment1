@@ -40,7 +40,7 @@ The histogram for the total steps  doesnot show days with 0 steps as we have ign
 plot(stepsPerDay$date, stepsPerDay$totalSteps,xlab = "Date", ylab = "Steps per day",
 type = "h",col = 'green',lwd = 4)
 ```
-![plot of total steps histogram intially](figures/hist_total_steps_initial.png) 
+![plot of total steps histogram intially](figure/hist_total_steps_initial.png) 
 ####3.Calculate and report the mean and median of the total number of steps taken per day
 Mean and median of total steps taken per day are calculated as:
 ```r
@@ -61,7 +61,7 @@ Plot time series plot for the total steps taken per interval as:
 plot(stepsPerInterval$interval, stepsPerInterval$totalSteps,xlab = "Interval", ylab = "Steps",
 main = "Average daily activity pattern", type = "l",  col = "green")
 ```
-![plot of total steps histogram intially](figures/time_series_daily.png) 
+![plot of total steps histogram intially](figure/time_series_daily.png) 
 #### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 The interval with maximum number of steps is calculated by using which.max function on stepsPerInterval$totalSteps column as:
 ```r
@@ -100,7 +100,7 @@ plot(stepsPerDayForActivityWithoutNA$date, stepsPerDayForActivityWithoutNA$total
 ylab = "Steps per day",main = "Histogram showing total steps per day \n after filling NAs", 
 type = "h", col = 'green',lwd = 4)
 ```
-![plot of total steps histogram after filling missing values](figures/hist_total_steps_after_filling_nas.png)
+![plot of total steps histogram after filling missing values](figure/hist_total_steps_after_filling_nas.png)
 #### 4.2 Calculate and report the mean and median total number of steps taken per day
 After filling the missing values, mean and median of total steps taken per day are calculated as:
 ```r
@@ -131,4 +131,4 @@ g <- ggplot(averageStepsByWeekDayType, aes(x = interval, y = avgSteps, col = wee
 facet_wrap(~weekDayType, ncol = 1, nrow = 2) +  geom_line() 
 print(g)
 ```
-![plot of time series pattern for weekend vs weekday](figures/time_series_pattern_weekend_vs_weekday.png)
+![plot of time series pattern for weekend vs weekday](figure/time_series_pattern_weekend_vs_weekday.png)
