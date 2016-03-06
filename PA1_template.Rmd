@@ -31,7 +31,7 @@ library('dplyr')
 Calculate total steps per day by first filtering days with NA steps, then grouping by day and finally calculating total steps for the day as:
 ```r
 stepsPerDay <- activity %>% filter(!is.na(steps)) %>% group_by(date) 
-%>% summarise(totalSteps = sum(steps)) %>% print
+%>% summarise(totalSteps = sum(steps))
 ```
 Plot histogram for the total steps taken per day using plot function as:
 ```r
@@ -48,22 +48,17 @@ medianSteps <- median(stepsPerDay$totalSteps)
 The calculated mean and median are 10766.19 and 10765 steps respectively.
 
 ## What is the average daily activity pattern?
-
-## Imputing missing values
-
-
-
-## Are there differences in activity patterns between weekdays and weekends?
-
-
-
-
-## What is mean total number of steps taken per day?
-
-
-
-## What is the average daily activity pattern?
-
+Calculate total steps per 5-minute interval by first filtering days with NA steps, then grouping by interval and finally calculating total steps for the interval as:
+```r
+stepsPerInterval <- activity %>% filter(!is.na(steps)) %>% group_by(interval) 
+%>% summarise(totalSteps = sum(steps))
+```
+Plot time series plot for the total steps taken per interval as:
+```r
+plot(stepsPerInterval$interval, stepsPerInterval$totalSteps,xlab = "Interval", ylab = "Steps",
+main = "Average daily activity pattern", type = "l",  col = "green")
+```
+![plot of total steps histogram intially](figures/time_series_daily.png) 
 
 
 ## Imputing missing values
