@@ -1,10 +1,3 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
-
 ## Loading and preprocessing the data
 Clear workspace using rm command as:
 ```r
@@ -34,14 +27,14 @@ Calculate total steps per day by first filtering days with NA steps, then groupi
 stepsPerDay <- activity %>% filter(!is.na(steps)) %>% group_by(date) 
 %>% summarise(totalSteps = sum(steps))
 ```
-####2. Make a histogram of the total number of steps taken each day
+#### 2. Make a histogram of the total number of steps taken each day
 The histogram for the total steps  doesnot show days with 0 steps as we have ignored them, the code for histogram plot is shown below:
 ```r
 plot(stepsPerDay$date, stepsPerDay$totalSteps,xlab = "Date", ylab = "Steps per day",
 type = "h",col = 'green',lwd = 4)
 ```
 ![plot of total steps histogram intially](figure/hist_total_steps_initial.png) 
-####3.Calculate and report the mean and median of the total number of steps taken per day
+#### 3.Calculate and report the mean and median of the total number of steps taken per day
 Mean and median of total steps taken per day are calculated as:
 ```r
 meanSteps <- mean(stepsPerDay$totalSteps)
@@ -71,7 +64,7 @@ totalSteps <- intervalWithMaxSteps$totalSteps
 ```
 The 5-minute interval that contains the maximum number of steps is 835 and the maximum number of steps is 10927
 ## Imputing missing values
-####1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
+#### 1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 The total number of missing values in the dataset is calculated as:
 ```r
 sum(is.na(activity$steps))
