@@ -6,7 +6,42 @@ output:
 ---
 
 
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
+
+
 ## Loading and preprocessing the data
+Unzip the activity dataset 
+```r
+unzip(zipfile = "activity.zip")
+```
+Load the data into activity dataframe using read.csv()
+```r
+activity <- read.csv("data/activity.csv")
+```
+Convert class of date column in activity dataframe from factor to Date
+```r
+activity$date <- as.Date(activity$date)
+```
+
+## What is mean total number of steps taken per day?
+
+
+
+## What is the average daily activity pattern?
+
+
+
+## Imputing missing values
+
+
+
+## Are there differences in activity patterns between weekdays and weekends?
+
 
 
 
