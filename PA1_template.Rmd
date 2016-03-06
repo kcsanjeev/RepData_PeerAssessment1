@@ -15,26 +15,48 @@ output:
 
 
 ## Loading and preprocessing the data
-Unzip the activity dataset 
+Clear workspace using rm command as:
+```r
+rm(list = ls())
+```
+Unzip the activity dataset as:
 ```r
 unzip(zipfile = "activity.zip")
 ```
-Load the data into activity dataframe using read.csv()
+Load the data into activity dataframe using read.csv() as:
 ```r
 activity <- read.csv("data/activity.csv")
 ```
-Convert class of date column in activity dataframe from factor to Date
+Convert date column of activity dataframe from factor to Date as:
 ```r
 activity$date <- as.Date(activity$date)
 ```
 
 ## What is mean total number of steps taken per day?
+Load dplyr package that will be used for manipulating data as:
+```r
+library('dplyr')
+```
+Calculate total steps per day by first filtering days with NA steps, then grouping by day and finally calculating total steps for the day as:
+```r
+stepsPerDay <- activity %>% filter(!is.na(steps)) %>% group_by(date) 
+%>% summarise(totalSteps = sum(steps)) %>% print
+```
+Plot histogram for the total steps taken per day using plot function as:
+```r
+plot(stepsPerDay$date, stepsPerDay$totalSteps,xlab = "Date", ylab = "Steps per day",
+type = "h",col = 'green',lwd = 4)
+```
+![plot of total steps histogram intially](figures/hist_total_steps_initial.png) 
 
-
+Mean and median of total steps taken per day are calculated as:
+```r
+meanSteps <- mean(stepsPerDay$totalSteps)
+medianSteps <- median(stepsPerDay$totalSteps)
+```
+The calculated mean and median are 10766.19 and 10765 steps respectively.
 
 ## What is the average daily activity pattern?
-
-
 
 ## Imputing missing values
 
