@@ -16,7 +16,7 @@ unzip(zipfile = "activity.zip")
 ```
 Load the data into activity dataframe using read.csv() as:
 ```r
-activity <- read.csv("data/activity.csv")
+activity <- read.csv("activity.csv")
 ```
 Convert date column of activity dataframe from factor to Date as:
 ```r
@@ -65,9 +65,11 @@ main = "Average daily activity pattern", type = "l",  col = "green")
 #### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 The interval with maximum number of steps is calculated by using which.max function on stepsPerInterval$totalSteps column as:
 ```r
-intervalWithMaxSteps <- stepsPerInterval[which.max(stepsPerInterval$totalSteps),]$interval
+intervalWithMaxSteps <- stepsPerInterval[which.max(stepsPerInterval$totalSteps),]
+interval <- intervalWithMaxSteps$interval
+totalSteps <- intervalWithMaxSteps$totalSteps
 ```
-
+The 5-minute interval that contains the maximum number of steps is 835 and the maximum number of steps is 10927
 ## Imputing missing values
 ####1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 The total number of missing values in the dataset is calculated as:
